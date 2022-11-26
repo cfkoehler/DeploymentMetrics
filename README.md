@@ -16,6 +16,8 @@ version,secondaryDeployment,pirmaryDeployment,failure
 1.1.0,11/24/22,11/25/22,false
 1.2.0,11/26/22,NA,false
 ```
+**Sample Chart:**
+![Sample Chart](https://raw.githubusercontent.com/cfkoehler/DeploymentMetrics/main/images/deploymentFrequencyChart.png)
 
 ## Steps to create a virtual environment and run:
 To create virtual env: `python -m venv env`<br>
