@@ -48,7 +48,7 @@ def create_plot(df):
     deployments_deltas=df.dropna(subset=['deploymentDelta'])
 
     layout = dict(plot_bgcolor='white',
-              margin=dict(t=40, l=20, r=20, b=20),
+              margin=dict(t=60, l=20, r=20, b=80),
               xaxis=dict(title='Deployment Date',
                          linecolor='#d9d9d9',
                          showgrid=False,
@@ -69,14 +69,26 @@ def create_plot(df):
                     name='version')
 
     fig = go.Figure(data=data, layout=layout)
-    title = 'Deployment Frequency (Change Failure Rate: ' + str(get_failure_rate(df)) + '%)'
     fig.update_layout(
-        title=title,
+        title='Deployment Frequency',
         font=dict(
             family="Courier New, monospace",
             size=20,
             color="Black"
         )
+    )
+    fig.add_annotation(
+        text=(f"Updated: {datetime.date.today()}<br>Change Failure Rate: {get_failure_rate(df)}%"),
+        x = 0,
+        y = -1,
+        xref='paper',
+        yref='paper',
+        xanchor='left',
+        yanchor='bottom',
+        xshift=3,
+        yshift=25,
+        font=dict(size=18, color="blue"),
+        align="left",
     )
     return(fig)
 
